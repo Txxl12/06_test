@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let person = {
+      name: '张',
+      age: 18
+    }
+    let p = new Proxy(person, {
+      // target 目标对象  property 被获取的属性名 receiver Proxy或者继承Proxy的对象 value 设置的值
+      get(target,property,receiver) {
+        console.log('访问');
+        return Reflect.get(target,property)
+      },
+      set(target,property,value,receiver) {
+        console.log('修改');
+        Reflect.set(target,property,value)
+      },
+      deleteProperty(target,property) {
+        console.log('删除');
+        return Reflect.deleteProperty(target,property)
+      }
+    })
+    // Reflect更容易捕获错误 执行失败返回false
+    
+
+  </script>
+</body>
+
+</html>
