@@ -69,9 +69,9 @@ export default {
           无法正确获取oldVal
           强制开启深度监视(deep配置无效)
     */
-    watch([() => person.name, () => person.age], (newVal, oldVal) => {
+    /* watch([() => person.name, () => person.age], (newVal, oldVal) => {
       console.log(newVal, oldVal);
-    })
+    }) */
 
 
     return {
